@@ -1,2 +1,2 @@
-# Mestrado MILA: experimentos em tradução automática
-Textos paralelos para os experimentos da matéria Linguística Aplicada do MILA, USC.
+# Experimentos em tradução automática para docência
+Textos paralelos para os experimentos das matérias Linguística Computacional e Linguística Aplicada do MILA, USC.

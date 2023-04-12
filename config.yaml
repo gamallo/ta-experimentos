@@ -1,19 +1,19 @@
 ## Where the samples will be written
-save_data: mila-ta-experimentos/data
+save_data: ta-experimentos/data
 ## Where the vocab(s) will be written
-src_vocab: mila-ta-experimentos/example.vocab.src
-tgt_vocab: mila-ta-experimentos/example.vocab.tgt
+src_vocab: ta-experimentos/example.vocab.src
+tgt_vocab: ta-experimentos/example.vocab.tgt
 # Prevent overwriting existing files in the folder
 overwrite: True
 
 # Corpus opts:
 data:
     corpus_1:
-        path_src: mila-ta-experimentos/src-train.txt
-        path_tgt: mila-ta-experimentos/tgt-train.txt
+        path_src: ta-experimentos/src-train.txt
+        path_tgt: ta-experimentos/tgt-train.txt
     valid:
-        path_src: mila-ta-experimentos/src-val.txt
-        path_tgt: mila-ta-experimentos/tgt-val.txt
+        path_src: ta-experimentos/src-val.txt
+        path_tgt: ta-experimentos/tgt-val.txt
 
 
 world_size: 1

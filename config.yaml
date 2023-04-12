@@ -19,7 +19,7 @@ data:
 world_size: 1
 
 # Where to save the checkpoints
-save_model: mila-ta-experimentos/model
+save_model: ta-experimentos/model
 save_checkpoint_steps: 50
 train_steps: 100
 valid_steps: 50

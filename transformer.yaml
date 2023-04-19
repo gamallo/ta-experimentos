@@ -1,0 +1,101 @@
+## Where the samples will be written
+save_data: ta-experimentos/data
+## Where the vocab(s) will be written
+src_vocab: ta-experimentos/bpe.vocab.src
+tgt_vocab: ta-experimentos/bpe.vocab.tgt
+overwrite: True
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: ta-experimentos/src-train.txt
+        path_tgt: ta-experimentos/tgt-train.txt
+        transforms: [bpe, filtertoolong]
+    valid:
+        path_src: ta-experimentos/src-val.txt
+        path_tgt: ta-experimentos/tgt-val.txt
+        transforms: [bpe, filtertoolong]
+
+
+### Transform related opts:
+#### Subword
+src_subword_model: ta-experimentos/bpe/en.code
+tgt_subword_model: ta-experimentos/bpe/gl.code
+src_subword_vocab: ta-experimentos/bpe.vocab.src
+tgt_subword_vocab: ta-experimentos/bpe.vocab.tgt
+src_subword_type: bpe
+tgt_subord_type: bpe
+
+src_subword_nbest: 1
+src_subword_alpha: 0.0
+tgt_subword_nbest: 1
+tgt_subword_alpha: 0.0
+#### Filter
+src_seq_length: 150
+tgt_seq_length: 150
+
+# silently ignore empty lines in the data
+skip_empty_level: silent
+
+##embeddings#################################
+#src_embeddings: ../embeddings/en.emb.txt
+#tgt_embeddings: ../embeddings/gz.emb.txt
+
+## supported types: GloVe, word2vec
+#embeddings_type: "word2vec"
+
+# word_vec_size need to match with the pretrained embeddings dimensions
+#word_vec_size: 300
+###########################################
+
+# General opts
+save_model: ta-experimentos/model
+keep_checkpoint: 50
+save_checkpoint_steps: 10000
+average_decay: 0.0005
+seed: 1234
+report_every: 1000
+train_steps: 200000
+valid_steps: 10000
+
+# Batching
+queue_size: 10000
+bucket_size: 32768
+world_size: 1
+gpu_ranks: [0]
+batch_type: "tokens"
+#batch_size: 1500
+batch_size: 4096
+valid_batch_size: 64
+#batch_size_multiple: 1
+#max_generator_batches: 2
+accum_count: [4]
+accum_steps: [0]
+
+# Optimization
+model_dtype: "fp16"
+optim: "adam"
+learning_rate: 2
+warmup_steps: 8000
+decay_method: "noam"
+adam_beta2: 0.998
+max_grad_norm: 0
+label_smoothing: 0.1
+param_init: 0
+param_init_glorot: true
+normalization: "tokens"
+
+# Model
+encoder_type: transformer
+decoder_type: transformer
+position_encoding: true
+enc_layers: 6
+dec_layers: 6
+heads: 8
+#rnn_size: 512
+hidden_size: 512
+word_vec_size: 512
+transformer_ff: 2048
+dropout_steps: [0]
+dropout: [0.1]
+attention_dropout: [0.1]

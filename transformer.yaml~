@@ -1,0 +1,25 @@
+## Where the samples will be written
+save_data: ta-experimentos/data
+## Where the vocab(s) will be written
+src_vocab: ta-experimentos/example.vocab.src
+tgt_vocab: ta-experimentos/example.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: True
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: ta-experimentos/src-train.txt
+        path_tgt: ta-experimentos/tgt-train.txt
+    valid:
+        path_src: ta-experimentos/src-val.txt
+        path_tgt: ta-experimentos/tgt-val.txt
+
+
+world_size: 1
+
+# Where to save the checkpoints
+save_model: ta-experimentos/model
+save_checkpoint_steps: 50
+train_steps: 100
+valid_steps: 50
